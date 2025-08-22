@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Tap - Telegram Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Partículas de fondo -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Contenedor del juego -->
+    <div class="game-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="game-title">Gold Tap</h1>
+            <div class="score-display">
+                <div class="score-label">Oro Total</div>
+                <div class="score-value" id="score">0</div>
+            </div>
+        </header>
+
+        <!-- Área de juego -->
+        <main class="game-area">
+            <button class="tap-button" id="tapButton">
+                <span class="tap-icon">💰</span>
+            </button>
+        </main>
+
+        <!-- Panel de estadísticas -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-label">Por Tap</div>
+                <div class="stat-value" id="tapValue">1</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Nivel</div>
+                <div class="stat-value" id="level">1</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Taps Totales</div>
+                <div class="stat-value" id="totalTaps">0</div>
+            </div>
+        </div>
+
+        <!-- Panel de mejoras -->
+        <div class="upgrades-panel">
+            <h2 class="upgrades-title">Mejoras</h2>
+            <div class="upgrades-grid" id="upgradesGrid">
+                <!-- Las mejoras se generarán dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+<!-- Panel de ranking -->
+<div class="ranking-panel">
+    <h2 class="ranking-title">🏆 Ranking de Taps</h2>
+    <div class="ranking-list" id="rankingList">
+        
+        <!-- El ranking se generará dinámicamente -->
+    </div>
+    <button class="refresh-ranking-btn" id="refreshRankingBtn">Actualizar Ranking</button>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
