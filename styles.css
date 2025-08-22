@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    height: 100vh;
+    position: relative;
+}
+
+/* Partículas de fondo */
+.bg-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.game-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.game-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.score-display {
+    text-align: right;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Área de juego */
+.game-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.tap-button {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s, box-shadow 0.1s;
+    border: none;
+    position: relative;
+}
+
+.tap-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tap-icon {
+    font-size: 4rem;
+}
+
+.tap-indicator {
+    position: absolute;
+    top: -30px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.tap-indicator.show {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+/* Panel de estadísticas */
+.stats-panel {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Panel de mejoras */
+.upgrades-panel {
+    margin-top: auto;
+    padding-bottom: 20px;
+}
+
+.upgrades-title {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #FFD700;
+    font-size: 1.3rem;
+}
+
+.upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.upgrade-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.upgrade-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.upgrade-item.affordable {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.upgrade-item.affordable:hover {
+    background: rgba(76, 175, 80, 0.3);
+}
+
+.upgrade-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #FFD700;
+}
+
+.upgrade-cost {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.upgrade-level {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #4CAF50;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.3s ease-in-out;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .game-title {
+        margin-bottom: 10px;
+    }
+    
+    .tap-button {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .tap-icon {
+        font-size: 3.5rem;
+    }
+    
+    .stats-panel {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .upgrades-grid {
+        grid-template-columns: 1fr;
+    }
+}
